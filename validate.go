@@ -1,4 +1,4 @@
-package gojsonschemaformatcheckers
+package gojsonschemavalidator
 
 import (
 	"strings"
