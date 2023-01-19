@@ -1,4 +1,4 @@
-module github.com/suifengpiao14/gojsonschemaformatcheckers
+module github.com/suifengpiao14/gojsonschemavalidator
 
 go 1.18
 
