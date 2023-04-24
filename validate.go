@@ -7,6 +7,8 @@ import (
 	"github.com/xeipuuv/gojsonschema"
 )
 
+var ERROR_INVALID = errors.New("gojsonschemavalidator.Validate")
+
 // Validate 验证
 func Validate(input string, jsonLoader gojsonschema.JSONLoader) (err error) {
 	if input == "" {
@@ -54,6 +56,6 @@ func Validate(input string, jsonLoader gojsonschema.JSONLoader) (err error) {
 	for _, resultError := range result.Errors() {
 		msgArr = append(msgArr, resultError.String())
 	}
-	err = errors.Errorf("input args validate errors: %s", strings.Join(msgArr, ","))
+	err = errors.WithMessagef(ERROR_INVALID, "400:4000001:input args validate errors:%s", strings.Join(msgArr, ","))
 	return err
 }
